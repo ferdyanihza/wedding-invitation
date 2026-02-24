@@ -31,6 +31,6 @@ api.interceptors.response.use(
 
 
 // Debug: cek baseURL 
-console.log(import.meta.env.VITE_API_URL)
+// console.log(import.meta.env.VITE_API_URL)
 
 export default api
