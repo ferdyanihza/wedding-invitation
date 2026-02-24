@@ -29,4 +29,8 @@ api.interceptors.response.use(
   }
 )
 
+
+// Debug: cek baseURL yang dipakai
+console.log(import.meta.env.VITE_API_URL)
+
 export default api
