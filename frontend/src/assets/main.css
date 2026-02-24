@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory-100 text-brown-900 font-sans;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply font-script text-5xl md:text-6xl text-gold-600 text-center mb-2;
+  }
+
+  .section-subtitle {
+    @apply font-serif text-sm tracking-[0.25em] uppercase text-brown-400 text-center mb-12;
+  }
+
+  .card-wedding {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gold-200/50 p-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-sans font-medium rounded-full shadow-md hover:from-gold-600 hover:to-gold-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-gold-400 text-gold-700 font-sans font-medium rounded-full hover:bg-gold-50 transition-all duration-300;
+  }
+
+  .divider-ornament {
+    @apply flex items-center gap-4 my-8;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    @apply flex-1 h-px bg-gradient-to-r from-transparent to-gold-300;
+  }
+
+  .divider-ornament::after {
+    @apply from-gold-300 to-transparent;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fffdf0;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4a853;
+  border-radius: 10px;
+}
+
+/* Cover page overlay */
+.cover-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 27, 14, 0.3) 0%,
+    rgba(45, 27, 14, 0.1) 40%,
+    rgba(45, 27, 14, 0.5) 100%
+  );
+}
+
+/* Gold shimmer text */
+.text-shimmer {
+  background: linear-gradient(90deg, #c8922a, #f5d78e, #c8922a, #e8b84b, #c8922a);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Petal animations with different delays */
+.petal { animation: petalFall var(--duration, 6s) linear var(--delay, 0s) infinite; }
+
+@keyframes petalFall {
+  0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(50vh) translateX(var(--drift, 30px)) rotate(180deg); opacity: 0.7; }
+  100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+}

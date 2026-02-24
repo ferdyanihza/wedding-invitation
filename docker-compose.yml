@@ -1,0 +1,24 @@
+# Untuk development lokal saja
+# Untuk production: deploy ke Railway (lihat DEPLOY.md)
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wedding_backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.docker
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: wedding_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
